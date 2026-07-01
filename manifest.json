@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "cmd+zest Quiz",
+  "version": "1.0",
+  "description": "Descubra o seu processo de criação no quiz cmd+zest.",
+  "action": {
+    "default_icon": "images/684b1f3775a1644edbfc8b80_SOUR - Favicon.jpg"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "sandbox": {
+    "pages": [
+      "index.html",
+      "secondpage.html"
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "css/*",
+        "js/*",
+        "images/*",
+        "fonts/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "48": "images/684b1f3775a1644edbfc8b80_SOUR - Favicon.jpg",
+    "128": "images/684b1f3971715c3d58461988_SOUR - Webclip.jpg"
+  }
+}
