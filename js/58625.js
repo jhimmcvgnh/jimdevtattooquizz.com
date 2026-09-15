@@ -1754,7 +1754,7 @@ function initQuizLogic(core, scope = document) {
   // duplicate listeners accumulating across Barba page navigations).
 function submit() {
   // Redirect to demo/CTA page — update this URL as needed
-  const ctaUrl = 'secondpage.html';
+  const ctaUrl = 'https://jimdevsecopagetattoo-com.vercel.app/';
   try { sessionStorage.setItem('quiz_completed', 'true'); } catch {}
   window.location.href = ctaUrl;
 }
@@ -1842,7 +1842,11 @@ function initQuizInteraction(scope = document) {
 
   function setActiveTab(idx) {
     tabs.forEach(t => t.classList.remove('is-active'));
-    tabs.find(t => t.dataset.quizTab === `q${idx}`)?.classList.add('is-active');
+    const currentTab = tabs.find(t => t.dataset.quizTab === `q${idx}`);
+    if (currentTab) {
+      currentTab.classList.add('is-active');
+      currentTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
   }
 
   // Mark a tab as visited (answered or seen for copies)
@@ -2033,7 +2037,7 @@ function initQuizInteraction(scope = document) {
       }
       return;
     }
-    if (!['a', 'b', 'c'].includes(e.key.toLowerCase())) return;
+    if (!['a', 'b', 'c', 'd'].includes(e.key.toLowerCase())) return;
     current?.querySelector(`.cmd-answer[data-answer="${e.key.toLowerCase()}"]`)?.click();
   }
 
